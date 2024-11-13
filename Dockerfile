@@ -9,7 +9,7 @@ RUN apt-get update \
 
 # Copia o arquivo de solução e o arquivo do projeto
 COPY *.sln ./
-COPY APITeste/APITeste/APITeste.csproj APITeste/
+COPY APITeste/APITeste.csproj APITeste/
 
 # Restaura todas as dependências do projeto
 RUN dotnet restore
