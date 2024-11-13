@@ -25,8 +25,8 @@ WORKDIR /app
 # Copia os arquivos gerados pelo build para o container
 COPY --from=build /app/APITeste ./APITeste
 
-# Expõe a porta 8080 para acesso à API
-EXPOSE 8080
+# Expose the default Render port (10000)
+EXPOSE 10000
 
-# Script de inicialização para rodar a API
-CMD ["dotnet", "/app/APITeste/APITeste.dll", "--urls", "http://0.0.0.0:8080"]
+# Command to run the app using the PORT environment variable
+CMD ["dotnet", "/app/APITeste/APITeste.dll", "--urls", "http://0.0.0.0:$PORT"]
