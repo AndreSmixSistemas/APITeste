@@ -10,8 +10,6 @@ RUN apt-get update \
 COPY *.sln ./
 COPY APITeste.csproj APITeste/
 
-
-
 # Restaura todas as dependências
 RUN dotnet restore
 
