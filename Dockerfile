@@ -25,8 +25,5 @@ WORKDIR /app
 # Copia os arquivos gerados pelo build para o container
 COPY --from=build /app/APITeste ./APITeste
 
-# Expõe a porta para acesso à API
-EXPOSE 5001
-
 # Script de inicialização para rodar a API
-CMD ["dotnet", "/app/APITeste/APITeste.dll", "--urls", "http://0.0.0.0:5001"]
+CMD ["dotnet", "/app/APITeste/APITeste.dll"]
