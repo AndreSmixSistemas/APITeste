@@ -17,7 +17,7 @@ RUN dotnet restore
 
 # Copia todos os arquivos e faz o build em Release
 COPY . .
-RUN dotnet publish APITeste.cspro -c Release -o /app/APITeste
+RUN dotnet publish APITeste.csproj -c Release -o /app/APITeste
 
 # Etapa 2: Construção da imagem final
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
@@ -31,5 +31,5 @@ EXPOSE 5001
 
 # Script de inicialização para rodar todas as APIs em paralelo
 CMD \
-    dotnet /app/APITeste.API.dll --urls "http://0.0.0.0:5001" & \
+    dotnet /app/APITeste.dll --urls "http://0.0.0.0:5001" & \
     wait
