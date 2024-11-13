@@ -25,8 +25,8 @@ WORKDIR /app
 # Copia os arquivos gerados pelo build para o container
 COPY --from=build /app/APITeste ./APITeste
 
-# Expose the default Render port (10000)
-EXPOSE 10000
+# Expose the default Render port (5000)
+EXPOSE 5000
 
 # Command to run the app using the PORT environment variable
-CMD ["dotnet", "/app/APITeste/APITeste.dll", "--urls", "http://0.0.0.0:$PORT"]
+CMD ["dotnet", "/app/APITeste/APITeste.dll", "--urls", "http://0.0.0.0:${PORT}"]
